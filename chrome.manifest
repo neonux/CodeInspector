@@ -1,0 +1,4 @@
+content CodeInspector content/
+overlay chrome://browser/content/browser.xul chrome://CodeInspector/content/browser_overlay.xul
+locale CodeInspector en-US locale/en-US/
+skin CodeInspector classic/1.0 skin/

@@ -1,0 +1,148 @@
+/*
+ * Any copyright is dedicated to the Public Domain.
+ * http://creativecommons.org/publicdomain/zero/1.0/
+ */
+
+.script-status {
+  float: left;
+  width: 20px;
+  height: 20px;
+  margin-right: 6px;
+  border: 1px inset WindowFrame;
+}
+
+.script-name {
+  display: inline-block;
+  width: 150px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: pre;
+}
+
+/* stylesheet toolbar only visible for the active/focused/hovered stylesheets */
+.splitview-nav > li > header > .toolbar {
+  visibility: hidden;
+  float: right;
+  font-size: 0.8em;
+  margin-right: 20px;
+}
+.splitview-nav > li:hover > header > .toolbar,
+.splitview-nav > li:focus > header > .toolbar,
+.splitview-nav > li.splitview-active > header > .toolbar {
+  visibility: visible;
+}
+.toolbar > a {
+  color: -moz-default-color;
+}
+
+li hgroup {
+  display: block;
+  float: left;
+}
+
+h1, h2, h3 {
+  font-weight: normal;
+  margin: 0;
+  padding: 0;
+}
+h1 {
+  font-size: 0.9em;
+}
+h2, h3 {
+  font-size: 0.8em;
+}
+
+.script-error-message {
+  display: none;
+}
+.error .script-error-message {
+  display: block;
+  color: red;
+}
+
+.script-source {
+  display: -moz-box;
+  -moz-box-flex: 1;
+  min-height: 18em;
+  padding-top: 3px;
+  padding-bottom: 3px;
+  border: 1px inset WindowFrame;
+  border-radius: 4px;
+  background-color: -moz-default-background-color;
+}
+
+/* limited height mode */
+@media (max-height: 250px) {
+  .script-stats {
+    display: none;
+  }
+  .script-source {
+    margin: 0;
+    min-height: 10em;
+  }
+}
+
+/* limited width mode (hide search unless it has focus [search-on-type]) */
+@media (max-width: 400px) {
+  .splitview-filter {
+    position: fixed;
+    width: 100%;
+    left: 0;
+    bottom: -2em;
+    -moz-transition-property: bottom;
+    -moz-transition-duration: 0.5s;
+  }
+  .splitview-filter:focus {
+    bottom: 0em;
+  }
+  .script-source {
+    margin: 0;
+  }
+}
+
+.script-mode-selectBox {
+  margin-bottom: 4px;
+}
+
+.script-source {
+  display: block;
+  font-family: monospace;
+  font-size: 11px;
+  overflow: auto;
+  white-space: pre;
+}
+.script-source p {
+  display: block;
+  width: 100%;
+  margin: 0px;
+  padding: 0px;
+}
+.script-source .gutter {
+  display: inline-block;
+  width: 40px;
+  background: #e1ebfb;
+  border-right: 1px solid gray;
+}
+.script-source code {
+  display: inline-block;
+  width: 80%;
+  -moz-transition-property: background-color, font-weight;
+  -moz-transition-duration: 4s, 0.5s;
+}
+
+.percentile-good .script-status,
+.script-source.mode-coverage .full code {
+  background-color: #9f9 !important;
+}
+.percentile-bad .script-status,
+.script-source.mode-coverage .none code {
+  background-color: #f99 !important;
+}
+.percentile-average .script-status,
+.script-source.mode-coverage .partial code {
+  background-color: #ff9 !important;
+}
+
+.script-source .recent {
+  font-weight: bold;
+}
